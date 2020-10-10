@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Chat App</title>
+    <title>Chat Karo</title>
     <link rel="icon" href="/img/favicon.png">
     <link rel="stylesheet" href="/css/styles.min.css">
 </head>
@@ -18,9 +18,9 @@
             <div class="compose">
                 <form id="msg-form">
                     <input name="message" placeholder="Message" required autocomplete="off">
-                    <button id="okbtn">send</button>
+                    <button id="okbtn" Style="font-weight:BOLD">send</button>
                 </form>
-                <button id="sendLoc">Send Location</button>
+                <button id="sendLoc" Style="font-weight:BOLD">Send Location</button>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
                 <span class="message__name">{{username}}</span>
                 <span class="message__meta">{{createdAt}}</span>
             </p>
-            <p>{{message}} </p>
+            <p>{{message}}</p>
         </div>
     </script>
 
@@ -41,17 +41,16 @@
                 <span class="message__name">{{username}}</span>
                 <span class="message__meta">{{createdAt}}</span>
             </p>
-            <p><a href="{{locationLink}}" target="_blank" rel="noopener noreferrer">My current
-                    Location</a></p>
+            <p><a href="{{locationLink}}" target="_blank" rel="noopener noreferrer" Style="font-style:italic"> Hey, I am here! 📍</a></p>
         </div>
     </script>
 
     <script id="sidebar-template" type="text/html">
-        <h2 class="room-title">{{room}}</h2>
-        <h3 class="list-title">Users</h2>
+        <h2 class="room-title" Style="font-weight:BOLD;font-style:italic">{{room}} room 💬</h2>
+        <h3 class="list-title" Style="font-weight:BOLD">Users Online 🟢</h2>
             <ul class="users">
                 {{#users}}
-                <li>{{username}}</li>
+                <li>{{username}} 🔵</li>
                 {{/users}}
     </script>
 

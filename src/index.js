@@ -60,8 +60,8 @@ io.on('connection', (socket) => {
          * socket.broadcast.to.emit >> emit an event to everyone   in a room except one client.
          */
 
-        socket.emit('message', generateMessage('admin','Welcome to the chat app!!'));
-        socket.broadcast.to(user.room).emit('message', generateMessage('admin',`${user.username} has joined!`));
+        socket.emit('message', generateMessage('🛡️Admin',`🎉 Hey ${user.username}, welcome to the ${user.room.toUpperCase()} room.`));
+        socket.broadcast.to(user.room).emit('message', generateMessage('🛡️Admin',`${user.username} has joined! 🎉🎉`));
 
         io.to(user.room).emit('roomData',{
             room:user.room,
@@ -83,7 +83,7 @@ io.on('connection', (socket) => {
             return callback("Profanity is not allowed!!");
         }
 
-        io.to(user.room).emit('message', generateMessage(user.username,msg));
+        io.to(user.room).emit('message', generateMessage(`➤ ${user.username}`,msg));
         callback();
     });
 
@@ -91,7 +91,7 @@ io.on('connection', (socket) => {
 
         const user = getUser(socket.id);
 
-        io.to(user.room).emit('locationMessage', generateLocationMessage(user.username,`https://google.com/maps?q=${coords.latitude},${coords.longitude}`));
+        io.to(user.room).emit('locationMessage', generateLocationMessage(`➤ ${user.username}`,`https://google.com/maps?q=${coords.latitude},${coords.longitude}`));
 
         callback();
     });
@@ -100,7 +100,7 @@ io.on('connection', (socket) => {
         const user = removeUser(socket.id);
 
         if (user) {
-            io.to(user.room).emit('message', generateMessage('admin',`${user.username} has left the room.`));
+            io.to(user.room).emit('message', generateMessage('🛡️ Admin',`${user.username} has left the room.🏃`));
             io.to(user.room).emit('roomData',{
                 room:user.room,
                 users:getUsersInRoom(user.room)

@@ -17,7 +17,7 @@ const addUser = ({
 
     //cleaning the data
     username = username.trim().toLowerCase();
-    room = room.trim().toLowerCase();
+    room = room.trim().toUpperCase();
 
     //validate the data
     if (!username || !room) {
